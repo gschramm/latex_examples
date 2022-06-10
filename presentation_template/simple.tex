@@ -1,0 +1,245 @@
+\documentclass[8pt,aspectratio=169,xcolor=dvipsnames]{beamer} % use handout option for handouts
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]
+\usepackage[utf8]{inputenc}
+\usepackage{colortbl}
+\usepackage{multimedia}
+
+\usetheme{default}
+\usecolortheme{seagull}
+
+\usepackage[T1]{fontenc}
+\usepackage[light]{roboto} 
+
+\usepackage{mwe} % provides images used in this example
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setbeamertemplate{frametitle}{\color{black}\bfseries\vskip16pt\insertframetitle}
+\setbeamertemplate{footline}[frame number]
+
+\linespread{1.25}
+
+\definecolor{ImperialRed}{HTML}{e63946}
+\definecolor{HoneyDew}{HTML}{f2efef}
+\definecolor{PowderBlue}{HTML}{A8DADC}
+\definecolor{CeladonBlue}{HTML}{457B9D}
+\definecolor{PrussianBlue}{HTML}{1D3557}
+
+
+\definecolor{UBCgrey}{rgb}{0.3686, 0.5255, 0.6235} % UBC Grey (secondary)
+
+\setbeamercolor{block title}{bg=PrussianBlue,fg=white}
+\setbeamercolor{block title example}{bg=CeladonBlue,fg=white}
+\setbeamercolor{block title alerted}{bg=ImperialRed,fg=white}
+
+\setbeamercolor{block body}{bg=HoneyDew,fg=black}
+\setbeamercolor{block body example}{bg=HoneyDew,fg=black}
+\setbeamercolor{block body alerted}{bg=HoneyDew,fg=black}
+
+\setbeamerfont{block title}{size=\normalsize}
+\setbeamerfont{block body}{size=\normalsize}
+\setbeamerfont{block title example}{size=\normalsize}
+\setbeamerfont{block body alerted}{size=\normalsize}
+\setbeamerfont{block body example}{size=\normalsize}
+
+\setbeamercolor{alerted text}{fg=ImperialRed}
+
+% table definitions
+\newcolumntype{a}{>{\columncolor{ImperialRed!70}}c}
+% Change horizontal spacing
+\setlength{\tabcolsep}{20pt}
+% Change vertical spacing
+\renewcommand{\arraystretch}{1.5}
+
+
+%------------------------------------------------------------
+%This block of code defines the information to appear in the
+%Title page
+\title[About Beamer] %optional
+{\textbf{About the Beamer class in presentation making}}
+
+\subtitle{A short story}
+
+\author[Schramm, Georg] % (optional)
+{Georg Schramm\inst{1}}
+
+\institute[KUL] % (optional)
+{
+  \inst{1}%
+  Department of Imaging and Pathology\\
+  KU Leuven
+}
+
+\date[VLC 2021] % (optional)
+{Very Large Conference, April 2021}
+
+%\logo{\includegraphics[height=1cm]{overleaf-logo}}
+
+%End of title page configuration block
+%------------------------------------------------------------
+
+
+
+%------------------------------------------------------------
+%The next block of commands puts the table of contents at the 
+%beginning of each section and highlights the current section:
+
+\AtBeginSection[]
+{
+  \begin{frame}
+    \frametitle{Table of Contents}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+%------------------------------------------------------------
+
+
+\begin{document}
+
+%The next statement creates the title page.
+\frame{\titlepage}
+
+
+%---------------------------------------------------------
+%This block of code is for the table of contents after
+%the title page
+\begin{frame}
+\frametitle{Table of Contents}
+\tableofcontents
+\end{frame}
+%---------------------------------------------------------
+
+
+\section{First section}
+
+%---------------------------------------------------------
+%Changing visivility of the text
+\begin{frame}
+\frametitle{Sample frame title}
+This is a text in second frame. For the sake of showing an example.
+
+\begin{itemize}
+    \item<1-> Text visible on slide 1
+    \item<2-> Text visible on slide 2
+    \item<3>  Text visible on slide 3
+    \item<4-> Text visible on slide 4
+\end{itemize}
+\end{frame}
+
+%---------------------------------------------------------
+\begin{frame}{Colored tables}
+\centering
+\begin{tabular}{lrara}
+\hline
+\rowcolor{PowderBlue}
+    \textbf{variables} & \multicolumn{4}{c}{\textbf{data}}\\ \hline
+    var 1 & 1 & 2 & 3 & 4 \\ \hline
+    var 2 & 1 & 2 & 3 & 4 \\ \hline
+    var 3 & 1 & 2 & 3 & 4 \\ \hline
+\end{tabular}
+\end{frame}
+%---------------------------------------------------------
+
+\section{Second section}
+
+%---------------------------------------------------------
+%Highlighting text
+\begin{frame}
+\frametitle{Sample frame title}
+
+In this slide, some important text will be
+\alert{highlighted} because it's important.
+Please, don't abuse it.
+
+\begin{block}{Remark}
+Sample text
+\end{block}
+
+\begin{alertblock}{Important theorem}
+Sample text in red box
+\end{alertblock}
+
+\begin{examples}
+Sample text in green box. The title of the block is ``Examples".
+\end{examples}
+\end{frame}
+%---------------------------------------------------------
+
+
+%---------------------------------------------------------
+%Two columns
+\begin{frame}
+\frametitle{Two-column slide}
+
+\begin{columns}
+
+\column{0.3\textwidth}
+This is a text in first column.
+$$E=\int f(x) dx$$
+\begin{itemize}
+\item First item
+\item Second item
+\end{itemize}
+
+\pause
+
+\column{0.7\textwidth}
+
+\begin{figure}
+\begin{center}
+  \includegraphics[width=.8\columnwidth]{image-a}
+\end{center}
+\caption{Foo bar}
+\end{figure}
+
+\end{columns}
+\end{frame}
+%---------------------------------------------------------
+
+%---------------------------------------------------------
+%Two columns
+\begin{frame}
+\frametitle{Math}
+
+\begin{equation}
+    \lambda^+ = \lambda \sum_i \frac{y_i}{\bar{y}_i}
+\end{equation}
+
+\end{frame}
+%---------------------------------------------------------
+
+\begin{frame}[t]
+\frametitle{Test}
+
+\begin{block}<1->{Correction method}
+  \begin{itemize}
+    \item<2-> Simulate
+    \item<5-> Assign
+  \end{itemize}
+\end{block}
+
+\begin{onlyenv}<3-6>
+  \begin{center}
+    \includegraphics<3>[scale=0.4]{image-a}
+    \includegraphics<4>[scale=0.4]{image-b}
+    \includegraphics<6>[scale=0.4]{image-c}
+  \end{center}
+\end{onlyenv}
+
+\begin{onlyenv}<7->
+  \begin{block}<7->{Scores}
+    \begin{itemize}
+      \item<8-> PSNR
+      \item<9-> MSE
+    \end{itemize}
+  \end{block}
+\end{onlyenv}
+
+\begin{center}
+  \includegraphics<10>[scale=0.2]{image-a}
+  \includegraphics<10>[scale=0.2]{image-b}
+\end{center}
+\end{frame}  
+
+\end{document}
