@@ -54,6 +54,14 @@
 % Change vertical spacing
 \renewcommand{\arraystretch}{1.5}
 
+% tikz visible on definition
+\tikzset{
+  invisible/.style={opacity=0},
+  visible on/.style={alt={#1{}{invisible}}},
+  alt/.code args={<#1>#2#3}{%
+    \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+  },
+}
 
 %------------------------------------------------------------
 %This block of code defines the information to appear in the
@@ -143,18 +151,18 @@ This is a text in second frame. For the sake of showing an example.
 \tikzstyle{arrow} = [thick,->,>=stealth]
 
 \node (start) [startstop] {Start};
-\node (in1) [io, right of=start] {Input};
-\node (pro1) [process, right of=in1] {Process 1};
-\node (dec1) [decision, right of=pro1] {Decision 1};
-\node (pro2b) [process, below of=dec1, yshift = 1cm] {Process 2b long text};
-\node (stop) [startstop, right of=dec1]{Stop};
+\node (in1) [io, right of=start, visible on = <2->] {Input};
+\node (pro1) [process, right of=in1, visible on = <3->] {Process 1};
+\node (dec1) [decision, right of=pro1, visible on = <4->] {Decision 1};
+\node (pro2b) [process, below of=dec1, yshift = 1cm, visible on = <6->] {Process 2b long text};
+\node (stop) [startstop, right of=dec1, visible on = <5->]{Stop};
 
-\draw [arrow] (start) -- (in1);
-\draw [arrow] (in1)   -- (pro1);
-\draw [arrow] (pro1)  -- (dec1);
-\draw [arrow] (dec1)  -- node[anchor=west]  {no} (pro2b);
-\draw [arrow] (dec1)  -- node[anchor=south] {yes} (stop);
-\draw [arrow] (pro2b) -| (stop);
+\draw [arrow, visible on = <2->] (start) -- (in1);
+\draw [arrow, visible on = <3->] (in1)   -- (pro1);
+\draw [arrow, visible on = <4->] (pro1)  -- (dec1);
+\draw [arrow, visible on = <6->] (dec1)  -- node[anchor=west]  {no} (pro2b);
+\draw [arrow, visible on = <5->] (dec1)  -- node[anchor=south] {yes} (stop);
+\draw [arrow, visible on = <6->] (pro2b) -| (stop);
 \end{tikzpicture}
 \end{center}
 
