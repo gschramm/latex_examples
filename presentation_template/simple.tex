@@ -13,6 +13,8 @@
 
 \usepackage{mwe} % provides images used in this example
 
+\usepackage{pgf,tikz}
+\usetikzlibrary{arrows}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setbeamertemplate{frametitle}{\color{black}\bfseries\vskip16pt\insertframetitle}
@@ -174,7 +176,7 @@ Sample text in green box. The title of the block is ``Examples".
 
 \begin{columns}
 
-\column{0.3\textwidth}
+\column{0.4\textwidth}
 This is a text in first column.
 $$E=\int f(x) dx$$
 \begin{itemize}
@@ -182,14 +184,16 @@ $$E=\int f(x) dx$$
 \item Second item
 \end{itemize}
 
-\column{0.7\textwidth}
+\column{0.5\textwidth}
 
-\begin{figure}
+%\begin{figure}
 \begin{center}
-  \includegraphics[width = 0.8\columnwidth]{scripts/plot.pdf}
+\resizebox{0.95\columnwidth}{!} {%
+  \input{figs/test.pgf}
+}
 \end{center}
-\caption{Foo bar}
-\end{figure}
+%\caption{Foo bar}
+%\end{figure}
 
 \end{columns}
 \end{frame}
