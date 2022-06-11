@@ -1,0 +1,24 @@
+\definecolor{qqwuqq}{rgb}{0,0.39,0}
+\definecolor{fftttt}{rgb}{1,0.2,0.2}
+\definecolor{zzqqtt}{rgb}{0.6,0,0.2}
+\definecolor{qqqqcc}{rgb}{0,0,0.8}
+\definecolor{uququq}{rgb}{0.25,0.25,0.25}
+\definecolor{cqcqcq}{rgb}{0.75,0.75,0.75}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\draw [color=cqcqcq,dash pattern=on 1pt off 1pt, xstep=1.0cm,ystep=1.0cm] (-2.75,-2.75) grid (2.75,2.75);
+\draw[->,color=black] (-2.75,0) -- (2.75,0);
+\foreach \x in {-2,-1,1,2}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {};
+\draw[->,color=black] (0,-2.75) -- (0,2.75);
+\foreach \y in {-2,-1,1,2}
+\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {};
+%\draw[color=black] (0pt,-10pt) node[right] {\footnotesize $0$};
+\clip(-2.75,-2.75) rectangle (2.75,2.75);
+\draw [shift={(0,0)},color=fftttt,fill=fftttt,fill opacity=0.1] (0,0) -- (0:0.57) arc (0:39.24:0.57) -- cycle;
+\draw[color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0.62,0.51) -- (0.76,0.34) -- (0.94,0.48) -- (0.8,0.65) -- cycle; 
+\draw [color=qqqqcc] (0,0) circle (2.5cm);
+\draw [color=zzqqtt] (-0.65,2.42)-- (2.24,-1.11);
+\draw (0,0)-- (0.8,0.65);
+\fill [color=uququq] (0,0) circle (1.5pt);
+\draw[color=fftttt] (0.37,0.13) node {$\theta$};
+\end{tikzpicture}
