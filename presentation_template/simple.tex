@@ -14,7 +14,7 @@
 \usepackage{mwe} % provides images used in this example
 
 \usepackage{pgf,tikz}
-\usetikzlibrary{arrows}
+\usetikzlibrary{shapes.geometric, arrows}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setbeamertemplate{frametitle}{\color{black}\bfseries\vskip16pt\insertframetitle}
@@ -127,6 +127,37 @@ This is a text in second frame. For the sake of showing an example.
     \item<3>  Text visible on slide 3
     \item<4-> Text visible on slide 4
 \end{itemize}
+\end{frame}
+
+%---------------------------------------------------------
+
+\begin{frame}
+\frametitle{Tikz flow chart}
+
+\begin{center}
+\begin{tikzpicture}[node distance=3cm]
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=2cm, minimum height=1cm,text centered, draw=black, fill=ImperialRed!50]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=2cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=2cm, minimum height=1cm, text centered, draw=black, fill=orange!30, text width = 2cm]
+\tikzstyle{decision} = [diamond, minimum width=2cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\node (start) [startstop] {Start};
+\node (in1) [io, right of=start] {Input};
+\node (pro1) [process, right of=in1] {Process 1};
+\node (dec1) [decision, right of=pro1] {Decision 1};
+\node (pro2b) [process, below of=dec1, yshift = 1cm] {Process 2b long text};
+\node (stop) [startstop, right of=dec1]{Stop};
+
+\draw [arrow] (start) -- (in1);
+\draw [arrow] (in1)   -- (pro1);
+\draw [arrow] (pro1)  -- (dec1);
+\draw [arrow] (dec1)  -- node[anchor=west]  {no} (pro2b);
+\draw [arrow] (dec1)  -- node[anchor=south] {yes} (stop);
+\draw [arrow] (pro2b) -| (stop);
+\end{tikzpicture}
+\end{center}
+
 \end{frame}
 
 %---------------------------------------------------------
