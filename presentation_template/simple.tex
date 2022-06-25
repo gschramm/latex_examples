@@ -77,6 +77,39 @@ This is a text in second frame. For the sake of showing an example.
 \end{frame}
 
 %---------------------------------------------------------
+%pgfplot
+\begin{frame}
+\frametitle{PGF plots}
+
+\begin{columns}
+  \column{0.3\textwidth}
+  \begin{itemize}
+    \item plot one shows important detail here with long explanation
+    \item another detail here
+  \end{itemize}
+
+  \column{0.7\textwidth}
+  
+  \begin{center}
+    \begin{tikzpicture}
+      \begin{axis}[xlabel = \(x\), ylabel = {\(f(x)\)}, grid=both,
+                   grid style={line width=.1pt, draw=gray!10},
+                   major grid style={dashed,line width=.2pt,draw=gray!50},
+                   width=\columnwidth, height = 0.8\textheight]
+        \addplot[domain=-1:1, samples=100, color=ImperialRed]{cos(deg(3*x))};
+        \addlegendentry{\(\cos(3x)\)}
+        
+        \addplot[domain=-1:1, samples=100, color=CeladonBlue]{x^2 - x - 1};
+        \addlegendentry{\(x^2 - x - 1\)}
+      \end{axis}
+    \end{tikzpicture}
+  \end{center}
+\end{columns}
+
+\end{frame}
+
+
+%---------------------------------------------------------
 
 \begin{frame}
 \frametitle{Tikz flow chart}
