@@ -16,10 +16,13 @@
 
 \usepackage[export]{adjustbox}
 
+\usepackage{xcolor}
+\usepackage{listings}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % bib definition
-%\usepackage[style=verbose, backend=bibtex]{biblatex}
-%\addbibresource{main.bib}
+\usepackage[style=verbose, backend=bibtex]{biblatex}
+\addbibresource{main.bib}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -88,10 +91,41 @@
       \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
     },
 }
-\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=2cm, minimum height=1cm,text centered, draw=black, fill=ImperialRed, text = white]
+\tikzstyle{machine} = [rectangle, rounded corners, minimum width=2cm, minimum height=1cm,text centered, draw=black, fill=PrussianBlue, text = white]
+\tikzstyle{data} = [rectangle, rounded corners, minimum width=2cm, minimum height=1cm,text centered, draw=black, fill=ImperialRed, text = white]
+\tikzstyle{recon} = [rectangle, rounded corners, minimum width=2cm, minimum height=1cm,text centered, draw=black, fill=CeladonBlue, text = white]
 \tikzstyle{arrow} = [thick,->,>=stealth]
 \tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=2cm, minimum height=1cm, text centered, draw=black, fill=CeladonBlue, text = white]
 \tikzstyle{process} = [rectangle, minimum width=2cm, minimum height=1cm, text centered, draw=black, fill=HoneyDew, text width = 2cm]
 \tikzstyle{decision} = [diamond, minimum width=2cm, minimum height=1cm, text centered, draw=black, fill=PowderBlue]
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=2cm, minimum height=1cm,text centered, draw=black, fill=ImperialRed, text = white]
+
 
 \usetikzlibrary{positioning}
+
+% definition for display of code using lstlisting
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{HoneyDew},
+  commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  keepspaces=true,
+  numbers=left,
+  numbersep=5pt,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=2
+}
+
+\lstset{style=mystyle}
